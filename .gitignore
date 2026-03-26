@@ -1,0 +1,30 @@
+# Maven build output
+target/
+
+# Java compiled artifacts
+*.class
+
+# Packaged archives
+*.war
+*.jar
+*.ear
+
+# Logs
+logs/
+*.log
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
