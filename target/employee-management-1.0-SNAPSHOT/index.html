@@ -15,9 +15,6 @@
             font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             padding: 20px;
         }
 
@@ -26,8 +23,9 @@
             border-radius: 10px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
             padding: 40px;
-            max-width: 500px;
+            max-width: 1000px;
             width: 100%;
+            margin: 0 auto;
         }
 
         h1 {
@@ -39,6 +37,64 @@
 
         .form-group {
             margin-bottom: 20px;
+        }
+
+        .table-wrapper {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 18px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 680px;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #e5e7eb;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        th {
+            background: #f8fafc;
+        }
+
+        h2 {
+            margin: 16px 0 12px;
+            color: #333;
+            font-size: 22px;
+        }
+
+        .empty-state {
+            margin-bottom: 16px;
+            padding: 14px;
+            border-radius: 8px;
+            background: #fef3c7;
+            color: #92400e;
+            font-weight: bold;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .card {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 14px;
+            background: #fafaff;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: #374151;
+            font-size: 18px;
         }
 
         label {
@@ -100,6 +156,24 @@
         .secondary-btn:hover {
             box-shadow: 0 5px 15px rgba(108, 117, 125, 0.4);
         }
+
+        .btn-add {
+            background: #2563eb;
+        }
+
+        .btn-update {
+            background: #0891b2;
+        }
+
+        .btn-delete {
+            background: #dc2626;
+        }
+
+        @media (max-width: 900px) {
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -107,48 +181,165 @@
 <div class="container">
     <h1>Employee Management System</h1>
 
-    <form method="POST" action="employee">
-        <div class="form-group">
-            <label for="action">Action:</label>
-            <select id="action" name="action" required>
-                <option value="list">View All Employees</option>
-                <option value="add">Add New Employee</option>
-                <option value="update">Update Employee</option>
-                <option value="delete">Delete Employee</option>
-            </select>
+    <h2>Employee List</h2>
+    <div class="table-wrapper" id="tableWrapper" style="display:none;">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Salary</th>
+                <th>Department</th>
+            </tr>
+            </thead>
+            <tbody id="employeeTableBody"></tbody>
+        </table>
+    </div>
+    <div class="empty-state" id="emptyState" style="display:none;">No employees found. Please add an employee.</div>
+
+    <h2>Manage Employees</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Add Employee</h3>
+            <form method="POST" action="/employee">
+                <input type="hidden" name="action" value="add">
+
+                <div class="form-group">
+                    <label for="addName">Name:</label>
+                    <input type="text" id="addName" name="name" placeholder="Enter employee name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="addEmail">Email:</label>
+                    <input type="email" id="addEmail" name="email" placeholder="Enter employee email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="addSalary">Salary:</label>
+                    <input type="number" id="addSalary" name="salary" placeholder="Enter salary" min="0" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="addDepartment">Department:</label>
+                    <input type="text" id="addDepartment" name="department" placeholder="Enter department" required>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" class="btn-add">Add</button>
+                    <button type="reset" class="secondary-btn">Clear</button>
+                </div>
+            </form>
         </div>
 
-        <div class="form-group">
-            <label for="id">Employee ID (for update/delete):</label>
-            <input type="number" id="id" name="id" placeholder="Enter employee ID">
+        <div class="card">
+            <h3>Update Employee</h3>
+            <form method="POST" action="/employee">
+                <input type="hidden" name="action" value="update">
+
+                <div class="form-group">
+                    <label for="updateId">Employee ID:</label>
+                    <input type="number" id="updateId" name="id" placeholder="Enter employee ID" min="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="updateName">Name:</label>
+                    <input type="text" id="updateName" name="name" placeholder="Enter employee name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="updateEmail">Email:</label>
+                    <input type="email" id="updateEmail" name="email" placeholder="Enter employee email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="updateSalary">Salary:</label>
+                    <input type="number" id="updateSalary" name="salary" placeholder="Enter salary" min="0" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="updateDepartment">Department:</label>
+                    <input type="text" id="updateDepartment" name="department" placeholder="Enter department" required>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" class="btn-update">Update</button>
+                    <button type="reset" class="secondary-btn">Clear</button>
+                </div>
+            </form>
         </div>
 
-        <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" placeholder="Enter employee name">
-        </div>
+        <div class="card">
+            <h3>Delete Employee</h3>
+            <form method="POST" action="/employee">
+                <input type="hidden" name="action" value="delete">
 
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Enter employee email">
-        </div>
+                <div class="form-group">
+                    <label for="deleteId">Employee ID:</label>
+                    <input type="number" id="deleteId" name="id" placeholder="Enter employee ID" min="1" required>
+                </div>
 
-        <div class="form-group">
-            <label for="salary">Salary:</label>
-            <input type="number" id="salary" name="salary" placeholder="Enter salary">
+                <div class="button-group">
+                    <button type="submit" class="btn-delete">Delete</button>
+                    <button type="reset" class="secondary-btn">Clear</button>
+                </div>
+            </form>
         </div>
-
-        <div class="form-group">
-            <label for="department">Department:</label>
-            <input type="text" id="department" name="department" placeholder="Enter department">
-        </div>
-
-        <div class="button-group">
-            <button type="submit">Submit</button>
-            <button type="reset" class="secondary-btn">Clear</button>
-        </div>
-    </form>
+    </div>
 </div>
+
+<script>
+    function escapeHtml(value) {
+        return String(value)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/\"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+    async function loadEmployees() {
+        const tableWrapper = document.getElementById("tableWrapper");
+        const emptyState = document.getElementById("emptyState");
+        const tableBody = document.getElementById("employeeTableBody");
+
+        try {
+            const response = await fetch("/employee?action=list", { method: "GET" });
+            if (!response.ok) {
+                throw new Error("Unable to load employees");
+            }
+
+            const employees = await response.json();
+            tableBody.innerHTML = "";
+
+            if (!employees || employees.length === 0) {
+                tableWrapper.style.display = "none";
+                emptyState.style.display = "block";
+                return;
+            }
+
+            employees.forEach(function (employee) {
+                const row = document.createElement("tr");
+                row.innerHTML =
+                    "<td>" + escapeHtml(employee.id) + "</td>" +
+                    "<td>" + escapeHtml(employee.name) + "</td>" +
+                    "<td>" + escapeHtml(employee.email) + "</td>" +
+                    "<td>" + escapeHtml(employee.salary) + "</td>" +
+                    "<td>" + escapeHtml(employee.department) + "</td>";
+                tableBody.appendChild(row);
+            });
+
+            emptyState.style.display = "none";
+            tableWrapper.style.display = "block";
+        } catch (e) {
+            tableWrapper.style.display = "none";
+            emptyState.style.display = "block";
+            emptyState.textContent = "Could not load employees. Please try again.";
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", loadEmployees);
+</script>
 
 </body>
 </html>

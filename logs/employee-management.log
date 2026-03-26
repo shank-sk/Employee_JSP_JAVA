@@ -45,3 +45,64 @@
 2026-03-26 17:48:46 [qtp496105986-46] INFO  util.DBConnection - Database connection established successfully
 2026-03-26 17:48:46 [qtp496105986-46] INFO  dao.EmployeeDAO - Employee deleted successfully - ID: 1
 2026-03-26 17:48:46 [qtp496105986-46] INFO  controller.EmployeeServlet - Employee deleted successfully
+2026-03-26 19:51:35 [qtp1699637904-36] INFO  controller.EmployeeServlet - Request received with action: list
+2026-03-26 19:51:35 [qtp1699637904-36] DEBUG controller.EmployeeServlet - Executing listEmployee action
+2026-03-26 19:51:35 [qtp1699637904-36] DEBUG dao.EmployeeDAO - Fetching all employees from database
+2026-03-26 19:51:35 [qtp1699637904-36] DEBUG util.DBConnection - Loading MySQL JDBC Driver
+2026-03-26 19:51:36 [qtp1699637904-36] DEBUG util.DBConnection - Attempting to connect to database at: jdbc:mysql://localhost:3306/employee_db
+2026-03-26 19:51:38 [qtp1699637904-43] INFO  controller.EmployeeServlet - Request received with action: list
+2026-03-26 19:51:38 [qtp1699637904-43] DEBUG controller.EmployeeServlet - Executing listEmployee action
+2026-03-26 19:51:38 [qtp1699637904-43] DEBUG dao.EmployeeDAO - Fetching all employees from database
+2026-03-26 19:51:38 [qtp1699637904-43] DEBUG util.DBConnection - Loading MySQL JDBC Driver
+2026-03-26 19:51:38 [qtp1699637904-43] DEBUG util.DBConnection - Attempting to connect to database at: jdbc:mysql://localhost:3306/employee_db
+2026-03-26 19:51:39 [qtp1699637904-36] INFO  util.DBConnection - Database connection established successfully
+2026-03-26 19:51:39 [qtp1699637904-43] INFO  util.DBConnection - Database connection established successfully
+2026-03-26 19:51:39 [qtp1699637904-43] INFO  dao.EmployeeDAO - Retrieved 0 employees from database
+2026-03-26 19:51:39 [qtp1699637904-36] INFO  dao.EmployeeDAO - Retrieved 0 employees from database
+2026-03-26 19:51:39 [qtp1699637904-36] INFO  controller.EmployeeServlet - List action requested. Total employees: 0
+2026-03-26 19:51:39 [qtp1699637904-43] INFO  controller.EmployeeServlet - List action requested. Total employees: 0
+2026-03-26 20:04:35 [qtp1699637904-42] DEBUG dao.EmployeeDAO - Fetching all employees from database
+2026-03-26 20:04:36 [qtp1699637904-42] DEBUG util.DBConnection - Loading MySQL JDBC Driver
+2026-03-26 20:04:36 [qtp1699637904-42] DEBUG util.DBConnection - Attempting to connect to database at: jdbc:mysql://localhost:3306/employee_db
+2026-03-26 20:04:38 [qtp1699637904-42] INFO  util.DBConnection - Database connection established successfully
+2026-03-26 20:04:38 [qtp1699637904-42] INFO  dao.EmployeeDAO - Retrieved 0 employees from database
+2026-03-26 20:05:10 [qtp1699637904-37] INFO  controller.EmployeeServlet - Request received with action: add
+2026-03-26 20:05:10 [qtp1699637904-37] DEBUG controller.EmployeeServlet - Executing addEmployee action
+2026-03-26 20:05:10 [qtp1699637904-37] INFO  controller.EmployeeServlet - Adding new employee - Name: Sachin, Email: sachin.ghule@gmail.com, Department: IT
+2026-03-26 20:05:10 [qtp1699637904-37] DEBUG util.DBConnection - Loading MySQL JDBC Driver
+2026-03-26 20:05:10 [qtp1699637904-37] DEBUG util.DBConnection - Attempting to connect to database at: jdbc:mysql://localhost:3306/employee_db
+2026-03-26 20:05:10 [qtp1699637904-37] INFO  util.DBConnection - Database connection established successfully
+2026-03-26 20:05:10 [qtp1699637904-37] INFO  dao.EmployeeDAO - Data added successfully
+2026-03-26 20:05:10 [qtp1699637904-37] INFO  controller.EmployeeServlet - Employee added successfully
+2026-03-26 20:05:10 [qtp1699637904-42] DEBUG dao.EmployeeDAO - Fetching all employees from database
+2026-03-26 20:05:10 [qtp1699637904-42] DEBUG util.DBConnection - Loading MySQL JDBC Driver
+2026-03-26 20:05:10 [qtp1699637904-42] DEBUG util.DBConnection - Attempting to connect to database at: jdbc:mysql://localhost:3306/employee_db
+2026-03-26 20:05:10 [qtp1699637904-42] INFO  util.DBConnection - Database connection established successfully
+2026-03-26 20:05:10 [qtp1699637904-42] INFO  dao.EmployeeDAO - Retrieved 1 employees from database
+2026-03-26 20:06:21 [qtp1699637904-42] INFO  controller.EmployeeServlet - Request received with action: add
+2026-03-26 20:06:21 [qtp1699637904-42] DEBUG controller.EmployeeServlet - Executing addEmployee action
+2026-03-26 20:06:21 [qtp1699637904-42] INFO  controller.EmployeeServlet - Adding new employee - Name: Shashank, Email: shankrishu1903@gmail.com, Department: IT
+2026-03-26 20:06:21 [qtp1699637904-42] DEBUG util.DBConnection - Loading MySQL JDBC Driver
+2026-03-26 20:06:21 [qtp1699637904-42] DEBUG util.DBConnection - Attempting to connect to database at: jdbc:mysql://localhost:3306/employee_db
+2026-03-26 20:06:21 [qtp1699637904-42] INFO  util.DBConnection - Database connection established successfully
+2026-03-26 20:06:21 [qtp1699637904-42] INFO  dao.EmployeeDAO - Data added successfully
+2026-03-26 20:06:21 [qtp1699637904-42] INFO  controller.EmployeeServlet - Employee added successfully
+2026-03-26 20:06:21 [qtp1699637904-39] DEBUG dao.EmployeeDAO - Fetching all employees from database
+2026-03-26 20:06:21 [qtp1699637904-39] DEBUG util.DBConnection - Loading MySQL JDBC Driver
+2026-03-26 20:06:21 [qtp1699637904-39] DEBUG util.DBConnection - Attempting to connect to database at: jdbc:mysql://localhost:3306/employee_db
+2026-03-26 20:06:21 [qtp1699637904-39] INFO  util.DBConnection - Database connection established successfully
+2026-03-26 20:06:21 [qtp1699637904-39] INFO  dao.EmployeeDAO - Retrieved 2 employees from database
+2026-03-26 20:06:28 [qtp1699637904-48] INFO  controller.EmployeeServlet - Request received with action: delete
+2026-03-26 20:06:28 [qtp1699637904-48] DEBUG controller.EmployeeServlet - Executing deleteEmployee action
+2026-03-26 20:06:28 [qtp1699637904-48] INFO  controller.EmployeeServlet - Deleting employee with ID: 2
+2026-03-26 20:06:28 [qtp1699637904-48] DEBUG dao.EmployeeDAO - Deleting employee with ID: 2
+2026-03-26 20:06:28 [qtp1699637904-48] DEBUG util.DBConnection - Loading MySQL JDBC Driver
+2026-03-26 20:06:28 [qtp1699637904-48] DEBUG util.DBConnection - Attempting to connect to database at: jdbc:mysql://localhost:3306/employee_db
+2026-03-26 20:06:28 [qtp1699637904-48] INFO  util.DBConnection - Database connection established successfully
+2026-03-26 20:06:28 [qtp1699637904-48] INFO  dao.EmployeeDAO - Employee deleted successfully - ID: 2
+2026-03-26 20:06:28 [qtp1699637904-48] INFO  controller.EmployeeServlet - Employee deleted successfully
+2026-03-26 20:06:29 [qtp1699637904-39] DEBUG dao.EmployeeDAO - Fetching all employees from database
+2026-03-26 20:06:29 [qtp1699637904-39] DEBUG util.DBConnection - Loading MySQL JDBC Driver
+2026-03-26 20:06:29 [qtp1699637904-39] DEBUG util.DBConnection - Attempting to connect to database at: jdbc:mysql://localhost:3306/employee_db
+2026-03-26 20:06:29 [qtp1699637904-39] INFO  util.DBConnection - Database connection established successfully
+2026-03-26 20:06:29 [qtp1699637904-39] INFO  dao.EmployeeDAO - Retrieved 1 employees from database

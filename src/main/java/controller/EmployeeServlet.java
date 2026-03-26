@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.*;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -24,14 +25,23 @@ public class EmployeeServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String action = request.getParameter("action");
+        if ("list".equals(action)) {
+            List<Employee> list = dao.getAllEmployee();
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            writeEmployeesAsJson(response, list);
+            return;
+        }
         response.sendRedirect("index.html");
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         String action = request.getParameter("action");
 
         if (action == null) {
-            response.sendRedirect("index.html");
+            response.sendRedirect("employee");
             return;
         }
         log.info("Request received with action: {}", action);
@@ -55,12 +65,13 @@ public class EmployeeServlet extends HttpServlet {
                 listEmployee(request, response);
                 break;
             default:
-                response.sendRedirect("index.html");
+                response.sendRedirect("employee");
                 break;
         }
     }
 
-    private void addEmployee(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void addEmployee(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
         String name = request.getParameter("name");
         String email = request.getParameter("email");
@@ -77,10 +88,11 @@ public class EmployeeServlet extends HttpServlet {
             log.error("Failed to add employee");
         }
 
-        response.sendRedirect("index.html");
+        response.sendRedirect("employee");
     }
 
-    private void updateEmployee(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void updateEmployee(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
         int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
@@ -93,14 +105,14 @@ public class EmployeeServlet extends HttpServlet {
         log.info("Fetching all employees");
         List<Employee> list = dao.getAllEmployee();
         log.info("Retrieved {} employees", list.size());
-        response.sendRedirect("index.html");
+        response.sendRedirect("employee");
     }
 
-    private void listEmployee(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void listEmployee(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-        List<Employee> list = dao.getAllEmployee();
-        log.info("List action requested. Total employees: {}", list.size());
-        response.sendRedirect("index.html");
+        log.info("List action requested");
+        response.sendRedirect("employee");
     }
 
     private void deleteEmployee(HttpServletRequest request, HttpServletResponse response)
@@ -115,6 +127,43 @@ public class EmployeeServlet extends HttpServlet {
             log.error("Failed to delete employee with ID: {}", id);
         }
 
-        response.sendRedirect("index.html");
+        response.sendRedirect("employee");
+    }
+
+    private void writeEmployeesAsJson(HttpServletResponse response, List<Employee> employees) throws IOException {
+        PrintWriter out = response.getWriter();
+        StringBuilder json = new StringBuilder("[");
+
+        for (int i = 0; i < employees.size(); i++) {
+            Employee employee = employees.get(i);
+            if (i > 0) {
+                json.append(',');
+            }
+
+            json.append('{')
+                    .append("\"id\":").append(employee.getId()).append(',')
+                    .append("\"name\":\"").append(escapeJson(employee.getName())).append("\",")
+                    .append("\"email\":\"").append(escapeJson(employee.getEmail())).append("\",")
+                    .append("\"salary\":").append(employee.getSalary()).append(',')
+                    .append("\"department\":\"").append(escapeJson(employee.getDepartment())).append("\"")
+                    .append('}');
+        }
+
+        json.append(']');
+        out.write(json.toString());
+        out.flush();
+    }
+
+    private String escapeJson(String value) {
+        if (value == null) {
+            return "";
+        }
+
+        return value
+                .replace("\\", "\\\\")
+                .replace("\"", "\\\"")
+                .replace("\n", "\\n")
+                .replace("\r", "\\r")
+                .replace("\t", "\\t");
     }
 }
