@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.1);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .button-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .button-group button {
+            margin-top: 0;
+        }
+
+        .secondary-btn {
+            background: #6c757d;
+        }
+
+        .secondary-btn:hover {
+            box-shadow: 0 5px 15px rgba(108, 117, 125, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Employee Management System</h1>
+
+    <form method="POST" action="employee">
+        <div class="form-group">
+            <label for="action">Action:</label>
+            <select id="action" name="action" required>
+                <option value="list">View All Employees</option>
+                <option value="add">Add New Employee</option>
+                <option value="update">Update Employee</option>
+                <option value="delete">Delete Employee</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="id">Employee ID (for update/delete):</label>
+            <input type="number" id="id" name="id" placeholder="Enter employee ID">
+        </div>
+
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter employee name">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter employee email">
+        </div>
+
+        <div class="form-group">
+            <label for="salary">Salary:</label>
+            <input type="number" id="salary" name="salary" placeholder="Enter salary">
+        </div>
+
+        <div class="form-group">
+            <label for="department">Department:</label>
+            <input type="text" id="department" name="department" placeholder="Enter department">
+        </div>
+
+        <div class="button-group">
+            <button type="submit">Submit</button>
+            <button type="reset" class="secondary-btn">Clear</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
