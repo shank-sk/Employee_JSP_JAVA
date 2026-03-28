@@ -1,108 +1,26 @@
-2026-03-26 17:48:07 [qtp496105986-47] INFO  controller.EmployeeServlet - Request received with action: list
-2026-03-26 17:48:07 [qtp496105986-47] DEBUG controller.EmployeeServlet - Executing listEmployee action
-2026-03-26 17:48:07 [qtp496105986-47] DEBUG dao.EmployeeDAO - Fetching all employees from database
-2026-03-26 17:48:07 [qtp496105986-47] DEBUG util.DBConnection - Loading MySQL JDBC Driver
-2026-03-26 17:48:07 [qtp496105986-47] DEBUG util.DBConnection - Attempting to connect to database at: jdbc:mysql://localhost:3306/employee_db
-2026-03-26 17:48:09 [qtp496105986-47] INFO  util.DBConnection - Database connection established successfully
-2026-03-26 17:48:09 [qtp496105986-47] INFO  dao.EmployeeDAO - Retrieved 0 employees from database
-2026-03-26 17:48:09 [qtp496105986-47] INFO  controller.EmployeeServlet - List action requested. Total employees: 0
-2026-03-26 17:48:26 [qtp496105986-45] INFO  controller.EmployeeServlet - Request received with action: list
-2026-03-26 17:48:26 [qtp496105986-45] DEBUG controller.EmployeeServlet - Executing listEmployee action
-2026-03-26 17:48:26 [qtp496105986-45] DEBUG dao.EmployeeDAO - Fetching all employees from database
-2026-03-26 17:48:26 [qtp496105986-45] DEBUG util.DBConnection - Loading MySQL JDBC Driver
-2026-03-26 17:48:26 [qtp496105986-45] DEBUG util.DBConnection - Attempting to connect to database at: jdbc:mysql://localhost:3306/employee_db
-2026-03-26 17:48:26 [qtp496105986-45] INFO  util.DBConnection - Database connection established successfully
-2026-03-26 17:48:26 [qtp496105986-45] INFO  dao.EmployeeDAO - Retrieved 0 employees from database
-2026-03-26 17:48:26 [qtp496105986-45] INFO  controller.EmployeeServlet - List action requested. Total employees: 0
-2026-03-26 17:48:41 [qtp496105986-43] INFO  controller.EmployeeServlet - Request received with action: add
-2026-03-26 17:48:41 [qtp496105986-43] DEBUG controller.EmployeeServlet - Executing addEmployee action
-2026-03-26 17:48:41 [qtp496105986-43] INFO  controller.EmployeeServlet - Adding new employee - Name: Demo, Email: demo@test.com, Department: IT
-2026-03-26 17:48:41 [qtp496105986-43] DEBUG util.DBConnection - Loading MySQL JDBC Driver
-2026-03-26 17:48:41 [qtp496105986-43] DEBUG util.DBConnection - Attempting to connect to database at: jdbc:mysql://localhost:3306/employee_db
-2026-03-26 17:48:41 [qtp496105986-43] INFO  util.DBConnection - Database connection established successfully
-2026-03-26 17:48:41 [qtp496105986-43] INFO  dao.EmployeeDAO - Data added successfully
-2026-03-26 17:48:41 [qtp496105986-43] INFO  controller.EmployeeServlet - Employee added successfully
-2026-03-26 17:48:45 [qtp496105986-44] INFO  controller.EmployeeServlet - Request received with action: update
-2026-03-26 17:48:45 [qtp496105986-44] DEBUG controller.EmployeeServlet - Executing updateEmployee action
-2026-03-26 17:48:45 [qtp496105986-44] DEBUG dao.EmployeeDAO - Updating employee with ID: 1
-2026-03-26 17:48:45 [qtp496105986-44] DEBUG util.DBConnection - Loading MySQL JDBC Driver
-2026-03-26 17:48:45 [qtp496105986-44] DEBUG util.DBConnection - Attempting to connect to database at: jdbc:mysql://localhost:3306/employee_db
-2026-03-26 17:48:45 [qtp496105986-44] INFO  util.DBConnection - Database connection established successfully
-2026-03-26 17:48:45 [qtp496105986-44] INFO  dao.EmployeeDAO - Employee updated successfully - ID: 1
-2026-03-26 17:48:45 [qtp496105986-44] INFO  controller.EmployeeServlet - Fetching all employees
-2026-03-26 17:48:45 [qtp496105986-44] DEBUG dao.EmployeeDAO - Fetching all employees from database
-2026-03-26 17:48:45 [qtp496105986-44] DEBUG util.DBConnection - Loading MySQL JDBC Driver
-2026-03-26 17:48:45 [qtp496105986-44] DEBUG util.DBConnection - Attempting to connect to database at: jdbc:mysql://localhost:3306/employee_db
-2026-03-26 17:48:45 [qtp496105986-44] INFO  util.DBConnection - Database connection established successfully
-2026-03-26 17:48:45 [qtp496105986-44] INFO  dao.EmployeeDAO - Retrieved 1 employees from database
-2026-03-26 17:48:45 [qtp496105986-44] INFO  controller.EmployeeServlet - Retrieved 1 employees
-2026-03-26 17:48:46 [qtp496105986-46] INFO  controller.EmployeeServlet - Request received with action: delete
-2026-03-26 17:48:46 [qtp496105986-46] DEBUG controller.EmployeeServlet - Executing deleteEmployee action
-2026-03-26 17:48:46 [qtp496105986-46] INFO  controller.EmployeeServlet - Deleting employee with ID: 1
-2026-03-26 17:48:46 [qtp496105986-46] DEBUG dao.EmployeeDAO - Deleting employee with ID: 1
-2026-03-26 17:48:46 [qtp496105986-46] DEBUG util.DBConnection - Loading MySQL JDBC Driver
-2026-03-26 17:48:46 [qtp496105986-46] DEBUG util.DBConnection - Attempting to connect to database at: jdbc:mysql://localhost:3306/employee_db
-2026-03-26 17:48:46 [qtp496105986-46] INFO  util.DBConnection - Database connection established successfully
-2026-03-26 17:48:46 [qtp496105986-46] INFO  dao.EmployeeDAO - Employee deleted successfully - ID: 1
-2026-03-26 17:48:46 [qtp496105986-46] INFO  controller.EmployeeServlet - Employee deleted successfully
-2026-03-26 19:51:35 [qtp1699637904-36] INFO  controller.EmployeeServlet - Request received with action: list
-2026-03-26 19:51:35 [qtp1699637904-36] DEBUG controller.EmployeeServlet - Executing listEmployee action
-2026-03-26 19:51:35 [qtp1699637904-36] DEBUG dao.EmployeeDAO - Fetching all employees from database
-2026-03-26 19:51:35 [qtp1699637904-36] DEBUG util.DBConnection - Loading MySQL JDBC Driver
-2026-03-26 19:51:36 [qtp1699637904-36] DEBUG util.DBConnection - Attempting to connect to database at: jdbc:mysql://localhost:3306/employee_db
-2026-03-26 19:51:38 [qtp1699637904-43] INFO  controller.EmployeeServlet - Request received with action: list
-2026-03-26 19:51:38 [qtp1699637904-43] DEBUG controller.EmployeeServlet - Executing listEmployee action
-2026-03-26 19:51:38 [qtp1699637904-43] DEBUG dao.EmployeeDAO - Fetching all employees from database
-2026-03-26 19:51:38 [qtp1699637904-43] DEBUG util.DBConnection - Loading MySQL JDBC Driver
-2026-03-26 19:51:38 [qtp1699637904-43] DEBUG util.DBConnection - Attempting to connect to database at: jdbc:mysql://localhost:3306/employee_db
-2026-03-26 19:51:39 [qtp1699637904-36] INFO  util.DBConnection - Database connection established successfully
-2026-03-26 19:51:39 [qtp1699637904-43] INFO  util.DBConnection - Database connection established successfully
-2026-03-26 19:51:39 [qtp1699637904-43] INFO  dao.EmployeeDAO - Retrieved 0 employees from database
-2026-03-26 19:51:39 [qtp1699637904-36] INFO  dao.EmployeeDAO - Retrieved 0 employees from database
-2026-03-26 19:51:39 [qtp1699637904-36] INFO  controller.EmployeeServlet - List action requested. Total employees: 0
-2026-03-26 19:51:39 [qtp1699637904-43] INFO  controller.EmployeeServlet - List action requested. Total employees: 0
-2026-03-26 20:04:35 [qtp1699637904-42] DEBUG dao.EmployeeDAO - Fetching all employees from database
-2026-03-26 20:04:36 [qtp1699637904-42] DEBUG util.DBConnection - Loading MySQL JDBC Driver
-2026-03-26 20:04:36 [qtp1699637904-42] DEBUG util.DBConnection - Attempting to connect to database at: jdbc:mysql://localhost:3306/employee_db
-2026-03-26 20:04:38 [qtp1699637904-42] INFO  util.DBConnection - Database connection established successfully
-2026-03-26 20:04:38 [qtp1699637904-42] INFO  dao.EmployeeDAO - Retrieved 0 employees from database
-2026-03-26 20:05:10 [qtp1699637904-37] INFO  controller.EmployeeServlet - Request received with action: add
-2026-03-26 20:05:10 [qtp1699637904-37] DEBUG controller.EmployeeServlet - Executing addEmployee action
-2026-03-26 20:05:10 [qtp1699637904-37] INFO  controller.EmployeeServlet - Adding new employee - Name: Sachin, Email: sachin.ghule@gmail.com, Department: IT
-2026-03-26 20:05:10 [qtp1699637904-37] DEBUG util.DBConnection - Loading MySQL JDBC Driver
-2026-03-26 20:05:10 [qtp1699637904-37] DEBUG util.DBConnection - Attempting to connect to database at: jdbc:mysql://localhost:3306/employee_db
-2026-03-26 20:05:10 [qtp1699637904-37] INFO  util.DBConnection - Database connection established successfully
-2026-03-26 20:05:10 [qtp1699637904-37] INFO  dao.EmployeeDAO - Data added successfully
-2026-03-26 20:05:10 [qtp1699637904-37] INFO  controller.EmployeeServlet - Employee added successfully
-2026-03-26 20:05:10 [qtp1699637904-42] DEBUG dao.EmployeeDAO - Fetching all employees from database
-2026-03-26 20:05:10 [qtp1699637904-42] DEBUG util.DBConnection - Loading MySQL JDBC Driver
-2026-03-26 20:05:10 [qtp1699637904-42] DEBUG util.DBConnection - Attempting to connect to database at: jdbc:mysql://localhost:3306/employee_db
-2026-03-26 20:05:10 [qtp1699637904-42] INFO  util.DBConnection - Database connection established successfully
-2026-03-26 20:05:10 [qtp1699637904-42] INFO  dao.EmployeeDAO - Retrieved 1 employees from database
-2026-03-26 20:06:21 [qtp1699637904-42] INFO  controller.EmployeeServlet - Request received with action: add
-2026-03-26 20:06:21 [qtp1699637904-42] DEBUG controller.EmployeeServlet - Executing addEmployee action
-2026-03-26 20:06:21 [qtp1699637904-42] INFO  controller.EmployeeServlet - Adding new employee - Name: Shashank, Email: shankrishu1903@gmail.com, Department: IT
-2026-03-26 20:06:21 [qtp1699637904-42] DEBUG util.DBConnection - Loading MySQL JDBC Driver
-2026-03-26 20:06:21 [qtp1699637904-42] DEBUG util.DBConnection - Attempting to connect to database at: jdbc:mysql://localhost:3306/employee_db
-2026-03-26 20:06:21 [qtp1699637904-42] INFO  util.DBConnection - Database connection established successfully
-2026-03-26 20:06:21 [qtp1699637904-42] INFO  dao.EmployeeDAO - Data added successfully
-2026-03-26 20:06:21 [qtp1699637904-42] INFO  controller.EmployeeServlet - Employee added successfully
-2026-03-26 20:06:21 [qtp1699637904-39] DEBUG dao.EmployeeDAO - Fetching all employees from database
-2026-03-26 20:06:21 [qtp1699637904-39] DEBUG util.DBConnection - Loading MySQL JDBC Driver
-2026-03-26 20:06:21 [qtp1699637904-39] DEBUG util.DBConnection - Attempting to connect to database at: jdbc:mysql://localhost:3306/employee_db
-2026-03-26 20:06:21 [qtp1699637904-39] INFO  util.DBConnection - Database connection established successfully
-2026-03-26 20:06:21 [qtp1699637904-39] INFO  dao.EmployeeDAO - Retrieved 2 employees from database
-2026-03-26 20:06:28 [qtp1699637904-48] INFO  controller.EmployeeServlet - Request received with action: delete
-2026-03-26 20:06:28 [qtp1699637904-48] DEBUG controller.EmployeeServlet - Executing deleteEmployee action
-2026-03-26 20:06:28 [qtp1699637904-48] INFO  controller.EmployeeServlet - Deleting employee with ID: 2
-2026-03-26 20:06:28 [qtp1699637904-48] DEBUG dao.EmployeeDAO - Deleting employee with ID: 2
-2026-03-26 20:06:28 [qtp1699637904-48] DEBUG util.DBConnection - Loading MySQL JDBC Driver
-2026-03-26 20:06:28 [qtp1699637904-48] DEBUG util.DBConnection - Attempting to connect to database at: jdbc:mysql://localhost:3306/employee_db
-2026-03-26 20:06:28 [qtp1699637904-48] INFO  util.DBConnection - Database connection established successfully
-2026-03-26 20:06:28 [qtp1699637904-48] INFO  dao.EmployeeDAO - Employee deleted successfully - ID: 2
-2026-03-26 20:06:28 [qtp1699637904-48] INFO  controller.EmployeeServlet - Employee deleted successfully
-2026-03-26 20:06:29 [qtp1699637904-39] DEBUG dao.EmployeeDAO - Fetching all employees from database
-2026-03-26 20:06:29 [qtp1699637904-39] DEBUG util.DBConnection - Loading MySQL JDBC Driver
-2026-03-26 20:06:29 [qtp1699637904-39] DEBUG util.DBConnection - Attempting to connect to database at: jdbc:mysql://localhost:3306/employee_db
-2026-03-26 20:06:29 [qtp1699637904-39] INFO  util.DBConnection - Database connection established successfully
-2026-03-26 20:06:29 [qtp1699637904-39] INFO  dao.EmployeeDAO - Retrieved 1 employees from database
+2026-03-28 11:18:00 [qtp137685382-43] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2026-03-28 11:18:00 [qtp137685382-43] WARN  org.hibernate.orm.deprecation - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2026-03-28 11:18:01 [qtp137685382-43] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2026-03-28 11:18:01 [qtp137685382-43] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2026-03-28 11:18:01 [qtp137685382-43] INFO  o.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/employee_db]
+2026-03-28 11:18:01 [qtp137685382-43] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=root}
+2026-03-28 11:18:01 [qtp137685382-43] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2026-03-28 11:18:01 [qtp137685382-43] INFO  o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2026-03-28 11:18:02 [qtp137685382-43] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2026-03-28 11:18:03 [qtp137685382-43] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2026-03-28 11:18:03 [qtp137685382-43] DEBUG dao.EmployeeDAO - Fetching all employees from database
+2026-03-28 11:18:03 [qtp137685382-43] INFO  dao.EmployeeDAO - Retrieved 1 employees from database
+2026-03-28 11:18:12 [qtp137685382-42] DEBUG dao.EmployeeDAO - Fetching all employees from database
+2026-03-28 11:18:12 [qtp137685382-42] INFO  dao.EmployeeDAO - Retrieved 1 employees from database
+2026-03-28 11:23:34 [qtp137685382-42] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2026-03-28 11:23:37 [qtp137685382-42] WARN  org.hibernate.orm.deprecation - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2026-03-28 11:23:38 [qtp137685382-42] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2026-03-28 11:23:38 [qtp137685382-42] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2026-03-28 11:23:38 [qtp137685382-42] INFO  o.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/employee_db]
+2026-03-28 11:23:38 [qtp137685382-42] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=root}
+2026-03-28 11:23:38 [qtp137685382-42] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2026-03-28 11:23:38 [qtp137685382-42] INFO  o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2026-03-28 11:23:40 [qtp137685382-42] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2026-03-28 11:23:41 [qtp137685382-42] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2026-03-28 11:23:41 [qtp137685382-42] DEBUG dao.EmployeeDAO - Fetching all employees from database
+2026-03-28 11:23:42 [qtp137685382-42] INFO  dao.EmployeeDAO - Retrieved 1 employees from database
