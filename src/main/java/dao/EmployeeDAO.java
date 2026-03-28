@@ -1,120 +1,82 @@
 package dao;
 
 import model.Employee;
-import util.DBConnection;
+import util.Hibernate;
 
-import java.sql.*;
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 
 public class EmployeeDAO {
 
     private static final Logger log = LoggerFactory.getLogger(EmployeeDAO.class);
 
     public boolean addEmployee(Employee employee) {
+        try (Session session = Hibernate.getSessionFactory().openSession()) {
+            Transaction tx = session.beginTransaction();
+            session.persist(employee);
 
-        try {
-            Connection con = DBConnection.getConnection();
-
-            String query = "INSERT INTO employee(name,email,salary,department) VALUES(?,?,?,?)";
-
-            PreparedStatement pre = con.prepareStatement(query);
-
-            pre.setString(1, employee.getName());
-            pre.setString(2, employee.getEmail());
-            pre.setInt(3, employee.getSalary());
-            pre.setString(4, employee.getDepartment());
-
-            int row = pre.executeUpdate();
-            log.info("Data added successfully");
-            return row > 0;
+            tx.commit();
+            log.info("Employee added successfully - ID: {}", employee.getId());
+            return true;
         } catch (Exception e) {
-            e.printStackTrace();
-            log.info("Failed to add data");
+            log.error("Failed to add employee", e);
             return false;
         }
     }
 
-    public List<Employee> getAllEmployee(){
-        List<Employee> list = new ArrayList<>();
-        try{
+    public List<Employee> getAllEmployee() {
+        try (Session session = Hibernate.getSessionFactory().openSession()) {
             log.debug("Fetching all employees from database");
-            Connection con = DBConnection.getConnection();
-
-            String query = "SELECT * FROM employee";
-
-            PreparedStatement pre = con.prepareStatement(query);
-            ResultSet rs = pre.executeQuery();
-            while(rs.next()){
-                Employee employee = new Employee();
-
-                employee.setId(rs.getInt("id"));
-                employee.setName(rs.getString("name"));
-                employee.setEmail(rs.getString("email"));
-                employee.setSalary(rs.getInt("salary"));
-                employee.setDepartment(rs.getString("department"));
-
-                list.add(employee);
-            }
+            List<Employee> list = session.createQuery("from Employee", Employee.class).list();
             log.info("Retrieved {} employees from database", list.size());
+            return list;
 
-        }catch(Exception e) {
+        } catch (Exception e) {
             log.error("Error while fetching employees", e);
-            e.printStackTrace();
+            return Collections.emptyList();
         }
-        return list;
     }
 
-    public boolean updateEmployee(Employee employee){
-
-        try{
+    public boolean updateEmployee(Employee employee) {
+        try (Session session = Hibernate.getSessionFactory().openSession()) {
             log.debug("Updating employee with ID: {}", employee.getId());
-            Connection con = DBConnection.getConnection();
 
-            String query = "UPDATE employee SET name = ?, email = ?, salary = ?, department = ? WHERE id = ?";
+            Transaction tx = session.beginTransaction();
 
-            PreparedStatement pre = con.prepareStatement(query);
-            pre.setString(1, employee.getName());
-            pre.setString(2, employee.getEmail());
-            pre.setInt(3, employee.getSalary());
-            pre.setString(4, employee.getDepartment());
-            pre.setInt(5, employee.getId());
+            session.merge(employee);
 
-            int row = pre.executeUpdate();
-            if (row > 0) {
-                log.info("Employee updated successfully - ID: {}", employee.getId());
-            }
-            return row > 0;
-        }catch (Exception e){
+            tx.commit();
+            return true;
+        } catch (Exception e) {
             log.error("Error while updating employee with ID: {}", employee.getId(), e);
-            e.printStackTrace();
             return false;
         }
     }
 
-    public boolean deleteEmployee(int id){
+    public boolean deleteEmployee(int id) {
 
         boolean delete = false;
-        try{
+        try (Session session = Hibernate.getSessionFactory().openSession()) {
             log.debug("Deleting employee with ID: {}", id);
-            Connection con = DBConnection.getConnection();
+            Transaction tx = session.beginTransaction();
 
-            String query = "DELETE FROM employee WHERE id = ?";
-
-            PreparedStatement pre = con.prepareStatement(query);
-
-            pre.setInt(1,id);
-
-            int row = pre.executeUpdate();
-            if (row > 0) {
-                log.info("Employee deleted successfully - ID: {}", id);
+            Employee employee = session.get(Employee.class, id);
+            if (employee != null) {
+                session.remove(employee);
+                tx.commit();
+                delete = true;
+            } else {
+                log.warn("Employee with ID: {} not found for deletion", id);
+                tx.rollback();
             }
-            return row > 0;
-        }catch(Exception e){
+            return delete;
+        } catch (Exception e) {
             log.error("Error while deleting employee with ID: {}", id, e);
-            e.printStackTrace();
             return false;
         }
     }
