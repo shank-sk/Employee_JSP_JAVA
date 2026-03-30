@@ -202,7 +202,7 @@
     <div class="cards">
         <div class="card">
             <h3>Add Employee</h3>
-            <form method="POST" action="/employee">
+            <form method="POST" action="employee">
                 <input type="hidden" name="action" value="add">
 
                 <div class="form-group">
@@ -234,7 +234,7 @@
 
         <div class="card">
             <h3>Update Employee</h3>
-            <form method="POST" action="/employee">
+            <form method="POST" action="employee">
                 <input type="hidden" name="action" value="update">
 
                 <div class="form-group">
@@ -271,7 +271,7 @@
 
         <div class="card">
             <h3>Delete Employee</h3>
-            <form method="POST" action="/employee">
+            <form method="POST" action="employee">
                 <input type="hidden" name="action" value="delete">
 
                 <div class="form-group">
@@ -304,7 +304,7 @@
         const tableBody = document.getElementById("employeeTableBody");
 
         try {
-            const response = await fetch("/employee?action=list", { method: "GET" });
+            const response = await fetch("employee?action=list", { method: "GET" });
             if (!response.ok) {
                 throw new Error("Unable to load employees");
             }
